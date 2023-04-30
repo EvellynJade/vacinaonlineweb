@@ -1,12 +1,11 @@
 ## Sistema Vacina Online Web
 
-O projeto de desenvolvimento de um aplicativo para vacinação é uma iniciativa criada pela equipe composta pelas estudantes:
+O projeto de desenvolvimento de um sistema web para vacinação é uma iniciativa criada pela equipe composta pelas estudantes:
 - *Evellyn Jade de Cerqueira*
-- *Giselle Santos*
+- *Giselle Santos Ferreira*
 - *Ivan Gomes Ferreira Junior*
 - *Marlisson Alves Dos Santos*
 - *Vinicius Bispo De Jesus*
-
 
 Como parte da disciplina de Evolução de Software ministrada pelo docente *Prof. Dr. Michel Dos Santos Soares* para atender o plano de migração de software - Versão Mobile para Versão Web.  
 
