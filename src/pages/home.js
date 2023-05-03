@@ -14,8 +14,7 @@ export default function Home() {
   return (
     <>
       <NavBar></NavBar>
-
-      <div className="home">
+      
         <Grid container spacing={6}>
           <Grid item xs={12} sx={{ paddingBottom: 4 }}>
           </Grid>
@@ -32,7 +31,6 @@ export default function Home() {
             <CardSobre />
           </Grid>
         </Grid>
-      </div>
 
       <FooterContent></FooterContent>
     </>
