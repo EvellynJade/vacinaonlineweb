@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Image from 'next/image';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -56,12 +55,7 @@ export default function NavBar() {
               textDecoration: 'none',
             }}
           >
-            <Image
-              src="/images/Logo_transparente.png"
-              alt="Imagem Inicial"
-              width={60}
-              height={40}
-            />
+            LOGO
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
