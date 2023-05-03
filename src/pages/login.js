@@ -137,7 +137,7 @@ export default function Login() {
                     sx={{ marginBottom: 4 }}
                     onClick={() => router.push('/')}
                   >
-                    Login
+                    Entrar
                   </Button>
                   <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
                     <Typography variant='body2' sx={{ marginRight: 1 }}>
