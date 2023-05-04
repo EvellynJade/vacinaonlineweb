@@ -2,10 +2,10 @@
 import Grid from '@mui/material/Grid';
 
 // ** Demo Components Imports
-import CardVacinas from 'src/components/cards/vacinas';
-import CardDependentes from '@/components/cards/dependentes';
-import CardSobre from '@/components/cards/sobre';
-import CardPerfil from '@/components/cards/perfil';
+import CardVacinas from 'src/views/cards/vacinas';
+import CardDependentes from '@/views/cards/dependentes';
+import CardSobre from '@/views/cards/sobre';
+import CardPerfil from '@/views/cards/perfil';
 import NavBar from "@/components/navBar/navbar";
 import FooterContent from "@/components/footer/footer";
 
