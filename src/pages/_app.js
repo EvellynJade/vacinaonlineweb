@@ -1,4 +1,4 @@
-// import '@/styles/globals.css'
+import '@/styles/globals.css'
 
 import * as React from 'react';
 import PropTypes from 'prop-types';
@@ -18,7 +18,11 @@ export default function App(props) {
   return (
     <CacheProvider value={emotionCache}>
       <Head>
-      <title>{theme.templateName}</title>
+        <title>{theme.templateName}</title>
+        <meta
+          name='description'
+          content={`${theme.templateName} – `}
+        />
         <meta name='keywords' content='Vacina Online, Vacina, Carteirinha online' />
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
