@@ -9,11 +9,10 @@ import TabPanel from '@mui/lab/TabPanel';
 import TabContext from '@mui/lab/TabContext';
 import Typography from '@mui/material/Typography';
 import CardContent from '@mui/material/CardContent';
-import FooterContent from "@/components/footer/footer";
+import Footer from "@/components/footer";
 
 // ** Demo Components Imports
-import NavBar from "@/components/navBar/navbar";
-import styles from '@/styles/Home.module.css';
+import NavBar from "@/components/navBar";
 import Image from 'next/image';
 
 const CardNavigationCenter = () => {
@@ -30,7 +29,6 @@ const CardNavigationCenter = () => {
         <Image
             src="/images/home_vacina.jpeg"
             alt="Vacina"
-            className={styles.vacina}
             width={1310}
             height={400}
             priority
@@ -78,7 +76,7 @@ const CardNavigationCenter = () => {
         </TabContext>
         </Card>
 
-        <FooterContent></FooterContent>
+        <Footer></Footer>
     </>
   )
 }

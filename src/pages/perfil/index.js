@@ -15,8 +15,8 @@ import AccountOutline from 'mdi-material-ui/AccountOutline'
 import LockOpenOutline from 'mdi-material-ui/LockOpenOutline'
 
 // ** Demo Tabs Imports
-import TabAccount from 'src/views/cadastro/TabAccount'
-import TabSecurity from 'src/views/cadastro/TabSecurity'
+import TabAccount from './TabAccount'
+import TabSecurity from './TabSecurity'
 
 // ** Third Party Styles Imports
 import 'react-datepicker/dist/react-datepicker.css'
@@ -39,7 +39,7 @@ const TabName = styled('span')(({ theme }) => ({
   }
 }))
 
-const Cadastro = () => {
+export default function Perfil() {
   // ** State
   const [value, setValue] = useState('account')
 
@@ -86,5 +86,3 @@ const Cadastro = () => {
     
   )
 }
-
-export default Cadastro

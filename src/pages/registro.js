@@ -1,18 +1,17 @@
 // ** React Imports
-import { useState } from 'react'
+import { useState, Fragment, forwardRef } from 'react'
 
 // ** Next Imports
 import Link from 'next/link'
 import Image from 'next/image'
-import { useRouter } from 'next/router'
 
 // ** MUI Components
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Checkbox from '@mui/material/Checkbox'
 import TextField from '@mui/material/TextField'
-import InputLabel from '@mui/material/InputLabel'
 import Typography from '@mui/material/Typography'
+import InputLabel from '@mui/material/InputLabel'
 import IconButton from '@mui/material/IconButton'
 import CardContent from '@mui/material/CardContent'
 import FormControl from '@mui/material/FormControl'
@@ -26,10 +25,21 @@ import MuiFormControlLabel from '@mui/material/FormControlLabel'
 import EyeOutline from 'mdi-material-ui/EyeOutline'
 import EyeOffOutline from 'mdi-material-ui/EyeOffOutline'
 
+// ** Third Party Imports
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
+
 // ** Configs
 import themeConfig from '@/configs/theme';
 
 // ** Styled Components
+import DatePickerWrapper from 'src/@core/styles/libs/react-datepicker'
+
+// eslint-disable-next-line react/display-name
+const CustomInput = forwardRef((props, ref) => {
+  return <TextField inputRef={ref} label='Data de Nascimento' fullWidth {...props} />
+})
+
 const Card = styled(MuiCard)(({ theme }) => ({
   [theme.breakpoints.up('sm')]: { width: '28rem' }
 }))
@@ -47,16 +57,17 @@ const FormControlLabel = styled(MuiFormControlLabel)(({ theme }) => ({
   }
 }))
 
-export default function Login() {
-  // ** State
+const RegisterPage = () => {
+  // ** States
   const [values, setValues] = useState({
     password: '',
-    showPassword: false
+    showPassword: false,
   })
+
+  const [date, setDate] = useState(null)
 
   // ** Hook
   const theme = useTheme()
-  const router = useRouter()
 
   const handleChange = prop => event => {
     setValues({ ...values, [prop]: event.target.value })
@@ -94,18 +105,31 @@ export default function Login() {
                 </Box>
                 <Box sx={{ mb: 2 }}>
                   <Typography variant='h5' sx={{ fontWeight: 600, marginBottom: 1.0 }}>
-                    Bem Vindo ao {themeConfig.templateName}! 👋🏻
+                    Vamos fazer o seu cadastro 🚀
                   </Typography>
-                  <Typography variant='body2'>Por favor, entrar com sua conta</Typography>
+                  <Typography variant='body2'>Torne o gerenciamento da sua vacina mais fácil!</Typography>
                 </Box>
                 <form noValidate autoComplete='off' onSubmit={e => e.preventDefault()}>
+                  <TextField autoFocus fullWidth id='username' label='Nome' sx={{ marginBottom: 2 }} />
                   <TextField autoFocus fullWidth id='cpf' label='Cpf' sx={{ marginBottom: 2 }} helperText='Somente números' />
+                  <DatePickerWrapper sx={{ marginBottom: 2 }}>
+                    <DatePicker
+                      selected={date}
+                      showYearDropdown
+                      showMonthDropdown
+                      id='account-date'
+                      placeholderText='MM-DD-YYYY'
+                      customInput={<CustomInput />}
+                      onChange={date => setDate(date)}
+                    />
+                  </DatePickerWrapper>
+                  <TextField fullWidth type='email' label='Email' sx={{ marginBottom: 2 }} />
                   <FormControl fullWidth>
-                    <InputLabel htmlFor='auth-login-password'>Senha</InputLabel>
+                    <InputLabel htmlFor='auth-register-password'>Senha</InputLabel>
                     <OutlinedInput
-                      label='password'
+                      label='Password'
                       value={values.password}
-                      id='auth-login-password'
+                      id='auth-register-password'
                       onChange={handleChange('password')}
                       type={values.showPassword ? 'text' : 'password'}
                       endAdornment={
@@ -114,38 +138,36 @@ export default function Login() {
                             edge='end'
                             onClick={handleClickShowPassword}
                             onMouseDown={handleMouseDownPassword}
-                            aria-label='Alternar a visibilidade da senha'
+                            aria-label='toggle password visibility'
                           >
-                            {values.showPassword ? <EyeOutline /> : <EyeOffOutline />}
+                            {values.showPassword ? <EyeOutline fontSize='small' /> : <EyeOffOutline fontSize='small' />}
                           </IconButton>
                         </InputAdornment>
                       }
                     />
                   </FormControl>
-                  <Box
-                    sx={{ mb: 2, display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'space-between' }}
-                  >
-                    <FormControlLabel control={<Checkbox />} label='Lembre de mim' />
-                    <Link passHref legacyBehavior href='/'>
-                      <LinkStyled onClick={e => e.preventDefault()}>Esqueceu a senha?</LinkStyled>
-                    </Link>
-                  </Box>
-                  <Button
-                    fullWidth
-                    size='large'
-                    variant='contained'
-                    sx={{ marginBottom: 4 }}
-                    onClick={() => router.push('/')}
-                  >
-                    Entrar
+                  <FormControlLabel 
+                    sx={{ marginBottom: 2 }}
+                    control={<Checkbox />}
+                    label={
+                      <Fragment>
+                        <span>Eu concordo</span>
+                        <Link href='/' passHref legacyBehavior >
+                          <LinkStyled onClick={e => e.preventDefault()}> Política de privacidade e Termos</LinkStyled>
+                        </Link>
+                      </Fragment>
+                    }
+                  />
+                  <Button fullWidth size='large' type='submit' variant='contained' sx={{ marginBottom: 3 }}>
+                    Inscrever-se
                   </Button>
                   <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
                     <Typography variant='body2' sx={{ marginRight: 1 }}>
-                      Novo em nossa plataforma?
+                      Já tem uma conta?
                     </Typography>
                     <Typography variant='body2'>
-                      <Link passHref legacyBehavior href='/pages/register'>
-                        <LinkStyled>Criar Conta</LinkStyled>
+                      <Link passHref legacyBehavior  href='/login'>
+                        <LinkStyled>Faça login em vez disso</LinkStyled>
                       </Link>
                     </Typography>
                   </Box>
@@ -160,3 +182,4 @@ export default function Login() {
 }
 
 
+export default RegisterPage
