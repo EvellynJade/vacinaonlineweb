@@ -1,4 +1,4 @@
-import FooterContent from "@/components/footer/footer";
+import Footer from "@/components/footer";
 
 // ** React Imports
 import { useState } from 'react'
@@ -155,7 +155,7 @@ const TabAccount = () => {
         </Grid>
       </form>
       
-      <FooterContent></FooterContent>
+      <Footer></Footer>
     </CardContent>
   )
 }

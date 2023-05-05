@@ -1,4 +1,4 @@
-import FooterContent from "@/components/footer/footer";
+import Footer from "@/components/footer";
 
 // ** React Imports
 import { useState } from 'react'
@@ -133,7 +133,7 @@ const TabSecurity = () => {
           </Button>
         </Box>
 
-        <FooterContent></FooterContent>
+        <Footer></Footer>
         
       </CardContent>
     </form>

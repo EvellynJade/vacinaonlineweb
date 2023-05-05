@@ -14,8 +14,10 @@ export const roboto = Roboto({
 
 // Create a theme instance.
 const theme = createTheme({
+  // ** Layout Configs
   templateName: 'Vacina Online' /* App Name */,
   mode: 'light',
+  contentWidth: 'boxed' /* full | boxed */,
   palette: {
     primary: {
       main: '#ff7676',
@@ -25,7 +27,7 @@ const theme = createTheme({
     },
     secondary: {
       main: '#ffb3b3',
-      light: '#f7abab4f',
+      light: '#fbdfd9',
       dark: '#ff9191',
       contrastText: '#000',
     },
@@ -33,8 +35,6 @@ const theme = createTheme({
       paper: '#fff',
       default: '#fff',
     },
-    contrastThreshold: 3,
-    tonalOffset: 0.2,
     error: {
       main: red.A400,
     },
@@ -55,9 +55,9 @@ const theme = createTheme({
       A700: '#303030'
     },
     text: {
-      primary: '#3a3541',
-      secondary: '#3a3541',
-      disabled: '#3a3541'
+      primary: `rgba(58, 53, 65, 0.87)`,
+      secondary: `rgba(58, 53, 65, 0.68)`,
+      disabled: `rgba(58, 53, 65, 0.38)`
     },
     typography: {
       fontFamily: roboto.style.fontFamily,
@@ -72,6 +72,23 @@ const theme = createTheme({
         xl: 1536
       }
     },
+    spacing: factor => `${0.25 * factor}rem`,
+    action: {
+      active: `rgba(58, 53, 65, 0.54)`,
+      hover: `rgba(58, 53, 65, 0.04)`,
+      selected: `rgba(58, 53, 65, 0.08)`,
+      disabled: `rgba(58, 53, 65, 0.3)`,
+      disabledBackground: `rgba(58, 53, 65, 0.18)`,
+      focus: `rgba(58, 53, 65, 0.12)`
+    },
+    // ** Navigation (Menu) Configs
+    menuTextTruncate: true /* true | false */,
+    navigationSize: 260 /* Number in PX(Pixels) /*! Note: This is for Vertical navigation menu only */,
+    // ** Accessibility Configs
+    contrastThreshold: 3,
+    tonalOffset: 0.2,
+    // ** Other Configs
+    disableRipple: false,
     responsiveFontSizes: true,
   }
 });
